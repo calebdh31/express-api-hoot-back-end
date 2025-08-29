@@ -8,6 +8,7 @@ const cors = require('cors')
 const testJwtRouter = require("./controllers/test-jwt")
 const authRouter = require('./controllers/auth')
 const userRouter = require("./controllers/user")
+const hootRouter = require("./controllers/hoots")
 // Middlewares
 
 mongoose.connect(process.env.MONGODB_URI)
@@ -24,6 +25,7 @@ app.use(morgan('dev')) // logs request to the console
 app.use('/test-jwt', testJwtRouter)
 app.use('/auth', authRouter)
 app.use('/user', userRouter)
+app.use('/hoots', hootRouter)
 
 
 app.listen(3000, ()=> console.log('Server running on port 3000'))
